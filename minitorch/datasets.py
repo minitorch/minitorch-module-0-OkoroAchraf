@@ -5,6 +5,7 @@ from typing import List, Tuple
 
 
 def make_pts(N):
+    "This function makes N random (x1, x2) points"
     X = []
     for i in range(N):
         x_1 = random.random()
@@ -21,6 +22,9 @@ class Graph:
 
 
 def simple(N):
+    "This function makes N random (x1, x2) points. It then "
+    "assigns a Y output to the x1's . If x1 <0.5 then the Y given is 1"
+    "else the Y is 0"
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -30,6 +34,9 @@ def simple(N):
 
 
 def diag(N):
+    "This function makes N random (x1, x2) points. It then "
+    "assigns a Y output to the points. If x1+x2 <0.5 then the Y given is 1"
+    "else the Y is 0"
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -39,6 +46,9 @@ def diag(N):
 
 
 def split(N):
+    "This function makes N random (x1, x2) points. It then "
+    "assigns a Y output to the x1's . If x1 <0.2 or > 0.8 then the Y given is 1"
+    "else the Y is 0"
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -48,6 +58,9 @@ def split(N):
 
 
 def xor(N):
+    "This function makes N random (x1, x2) points. It then "
+    "assigns a Y output to the ponts. If x_1 < 0.5 and x_2 > 0.5 or x_1 > 0.5 and x_2 < 0.5"
+    "then the Y given is 1 else the Y is 0"
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -57,6 +70,10 @@ def xor(N):
 
 
 def circle(N):
+    "This function makes N random (x1, x2) points. It then "
+    "assigns a Y output based on distance from the center (0.5, 0.5). "
+    "If the squared distance is > 0.1 (outside the circle) the Y given is 1, "
+    "else (inside the circle) the Y is 0."
     X = make_pts(N)
     y = []
     for x_1, x_2 in X:
@@ -67,7 +84,11 @@ def circle(N):
 
 
 def spiral(N):
-
+    "This function makes N points arranged in two interleaved spiral arms "
+    "centered at (0.5, 0.5). The first N//2 points form one arm with Y=0, "
+    "the remaining N//2 points form a second arm rotated 90 degrees with Y=1. "
+    "The arms are parameterized by t in [0, 10] using x(t) = t*cos(t)/20 and "
+    "y(t) = t*sin(t)/20."
     def x(t):
         return t * math.cos(t) / 20.0
 
